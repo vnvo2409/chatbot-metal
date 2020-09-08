@@ -2,12 +2,7 @@ import sqlalchemy
 import os
 
 db = sqlalchemy.create_engine(
-    sqlalchemy.engine.url.URL(
-        drivername="postgresql+psycopg2",
-        username=os.getenv("DB_USER"),
-        password=os.getenv("DB_PASS"),
-        database="vovannghia",
-    ),
+    os.getenv("DATABASE_URL"),
     pool_size=5,
     max_overflow=2,
     pool_timeout=30,
